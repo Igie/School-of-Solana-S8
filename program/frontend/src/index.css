@@ -1,0 +1,122 @@
+@import "tailwindcss";
+
+
+@theme {
+ 
+  --gradient-primary: linear-gradient(160deg, #060a1b 10%, #031024 35%, #030807 100%);
+  --gradient-secondary: linear-gradient(100deg, #090f29 10%, #0d192a 35%, #131519 100%);
+}
+
+@theme {
+    --breakpoint-md: 36rem;
+
+    --gradient-bg: var(--gradient-primary);
+
+    --foreground: 180 100% 90%;
+
+    --card: hsl(220 45% 8%);
+    --card-foreground: hsl(180 100% 90%)
+
+    --popover: hsl(220 45% 8%);
+    --popover-foreground: hsl(180 100% 90%);
+
+    --muted: hsl(240 30% 20%);
+    --muted-foreground: hsl(180 30% 65%);
+
+    --destructive: hsl(0 70% 60%);
+    --destructive-foreground: hsl(210 40% 98%);
+
+    --border: oklch(25.875% 0.05199 282.152);
+    --input: hsl(40 30% 18%);
+    --ring: hsl(180 78% 52%);
+
+    --radius: 0.75rem;
+
+    --color-surface: #182134; 
+    --color-foreground: #d1f7d6;   
+    --color-accent-1: #879ca4;      
+    --color-accent-2: #7db09b;  
+    --color-accent-hover: #77a594; 
+    --color-muted: #7aa79d;        
+    --color-border: #4c75a1;    
+    
+    --gradient-card: linear-gradient(145deg, hsl(220 45% 8% / 0.6), hsl(240 45% 12% / 0.4));
+    --gradient-hero: linear-gradient(180deg, hsl(222 47% 5%), hsl(240 40% 8%));
+    
+    --shadow-glow: 0 0 30px hsl(180 78% 52% / 0.3);
+    --shadow-card: 0 4px 20px hsl(0 0% 0% / 0.4);
+    
+    --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+@theme inline {
+  --color-bg: var(--primary-background);     
+}
+
+
+@layer base {
+  
+  html, body {
+    @apply min-h-screen text-white;
+    background-image: var(--gradient-bg);
+    background-attachment: fixed;
+    background-size: cover;
+    background-repeat: no-repeat;
+    font-family: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+  }
+
+  * {
+    @apply rounded-sm
+  }
+
+  nav {
+    @apply border border-border shadow-xl shadow-accent-2/10 transition-colors;
+    
+    background-image: var(--gradient-secondary);
+  }
+
+  a {
+    @apply text-gray-300 px-1 hover:bg-accent-hover/40 transition-colors;
+  }
+
+  button {
+    @apply bg-accent-2/70 px-2 py-0.5 rounded-md hover:bg-accent-hover transition-all;
+  }
+
+  select {
+    @apply text-gray-300 border border-border bg-surface/40 text-xs rounded-sm px-1 py-1;
+  }
+
+  options {
+    @apply text-gray-300 bg-surface text-xs rounded border border-border;
+  }
+
+  option {
+    @apply text-gray-300 bg-surface text-xs rounded;
+  }
+  select::selection {
+    @apply bg-accent-1
+  }
+}
+
+.md {
+
+}
+
+.wallet-adapter-button-trigger {
+  height: 25px;
+  max-width: 120px;
+
+  @apply bg-accent-2/70  py-0 px-2 ;
+  @apply text-sm font-light;
+}
+
+.wallet-adapter-button:not([disabled]):hover {
+background-color: var(--color-accent-hover);
+}
+
+.wallet-adapter-button-start-icon {
+  width: 20px;
+  height: 20px;
+  margin-right: 2px;
+}
